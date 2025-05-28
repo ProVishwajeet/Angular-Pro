@@ -14,14 +14,24 @@
 .header-left {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .hamburger-btn {
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 15px;
+  margin-right: 20px;
   padding: 5px;
+  
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.box-icon {
+  margin-right: 20px;
   
   img {
     width: 24px;
@@ -33,20 +43,28 @@
   display: flex;
   align-items: center;
   
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+  
   .logo-text {
-    font-size: 18px;
-    font-weight: 600;
+    font-family: Oxygen, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: #333;
-    letter-spacing: 1px;
   }
 }
 
 .search-container {
-  flex: 1;
   display: flex;
-  justify-content: center;
-  max-width: 600px;
-  margin: 0 20px;
+  align-items: center;
+  width: 250px;
+  margin-left: 20px;
 }
 
 .search-bar {
@@ -56,12 +74,13 @@
   border-radius: 25px;
   padding: 0 15px;
   width: 100%;
-  height: 40px;
+  height: 36px;
   
   .search-icon {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.6;
   }
   
   input {
@@ -69,8 +88,9 @@
     border: none;
     background: transparent;
     outline: none;
-    font-size: 14px;
+    font-size: 13px;
     color: #333;
+    width: 100%;
     
     &::placeholder {
       color: #aaa;
@@ -85,7 +105,7 @@
 
 .header-icon {
   position: relative;
-  margin: 0 10px;
+  margin: 0 15px;
   cursor: pointer;
   
   img {
@@ -127,12 +147,9 @@
 }
 
 .country-flag {
-  cursor: pointer;
-  margin-left: 10px;
-  
   img {
     width: 24px;
-    height: 16px;
+    height: 24px;
     border-radius: 2px;
   }
 }

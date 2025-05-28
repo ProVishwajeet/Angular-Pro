@@ -1,9 +1,7 @@
 <div class="sidebar" [class.collapsed]="!isOpen">
   <div class="sidebar-header">
     <div class="logo">
-      <div class="logo-icon">
-        <div class="logo-shape"></div>
-      </div>
+      <img src="assets/logo.svg" alt="Logo" class="logo-icon">
       <span class="logo-text" *ngIf="isOpen">COINSPACE</span>
     </div>
   </div>
@@ -17,13 +15,7 @@
             [class.has-submenu]="item.hasSubmenu">
           <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
             <span class="menu-icon">
-              <ng-container [ngSwitch]="item.icon">
-                <span *ngSwitchCase="'home'" class="icon">🏠</span>
-                <span *ngSwitchCase="'sync'" class="icon">🔄</span>
-                <span *ngSwitchCase="'wallet'" class="icon">💼</span>
-                <span *ngSwitchCase="'chart'" class="icon">📊</span>
-                <span *ngSwitchDefault class="icon">📁</span>
-              </ng-container>
+              <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
             <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
             <span class="submenu-arrow" *ngIf="item.hasSubmenu && isOpen">
@@ -49,12 +41,7 @@
             [class.has-submenu]="item.hasSubmenu">
           <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
             <span class="menu-icon">
-              <ng-container [ngSwitch]="item.icon">
-                <span *ngSwitchCase="'bank'" class="icon">🏦</span>
-                <span *ngSwitchCase="'gift'" class="icon">🎁</span>
-                <span *ngSwitchCase="'bulb'" class="icon">💡</span>
-                <span *ngSwitchDefault class="icon">📁</span>
-              </ng-container>
+              <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
             <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
             <span class="submenu-arrow" *ngIf="item.hasSubmenu && isOpen">
@@ -75,16 +62,10 @@
     <div class="sidebar-section">
       <h3 *ngIf="isOpen">Account</h3>
       <ul class="menu-list">
-        <li *ngFor="let item of accountItems" [class.active]="item.isActive">
+        <li *ngFor="let item of accountItems.slice(0, accountItems.length - 1)" [class.active]="item.isActive">
           <a class="menu-item">
             <span class="menu-icon">
-              <ng-container [ngSwitch]="item.icon">
-                <span *ngSwitchCase="'notification'" class="icon">🔔</span>
-                <span *ngSwitchCase="'setting'" class="icon">⚙️</span>
-                <span *ngSwitchCase="'question'" class="icon">❓</span>
-                <span *ngSwitchCase="'logout'" class="icon">🚪</span>
-                <span *ngSwitchDefault class="icon">📁</span>
-              </ng-container>
+              <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
             <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
           </a>
@@ -92,6 +73,14 @@
       </ul>
     </div>
   </div>
-
-
+  
+  <!-- Logout button positioned at the bottom -->
+  <div class="logout-container">
+    <a class="menu-item">
+      <span class="menu-icon">
+        <img [src]="'assets/' + accountItems[accountItems.length - 1].iconSrc" alt="{{ accountItems[accountItems.length - 1].name }}" class="menu-svg-icon">
+      </span>
+      <span class="menu-text" *ngIf="isOpen">{{ accountItems[accountItems.length - 1].name }}</span>
+    </a>
+  </div>
 </div>

@@ -4,6 +4,7 @@ import { SnackbarService } from '../../services/snackbar.service';
 interface MenuItem {
   name: string;
   icon: string;
+  iconSrc: string;
   isActive?: boolean;
   hasSubmenu?: boolean;
   isSubmenuOpen?: boolean;
@@ -26,11 +27,12 @@ export class SidebarComponent {
   @Input() isOpen: boolean = true;
   
   menuItems: MenuItem[] = [
-    { name: 'Dashboard', icon: 'home', isActive: true },
-    { name: 'Exchange', icon: 'sync' },
+    { name: 'Dashboard', icon: 'home', iconSrc: 'Dashboard-icon.svg', isActive: true },
+    { name: 'Exchange', icon: 'sync', iconSrc: 'Exchange.svg' },
     { 
       name: 'My Wallet', 
       icon: 'wallet', 
+      iconSrc: 'My Wallet.svg',
       hasSubmenu: true, 
       isSubmenuOpen: false,
       submenuItems: [
@@ -41,13 +43,14 @@ export class SidebarComponent {
         { name: 'Payment Methods' }
       ]
     },
-    { name: 'Tradeview', icon: 'chart' }
+    { name: 'Tradeview', icon: 'chart', iconSrc: 'Tradeview.svg' }
   ];
   
   serviceItems: MenuItem[] = [
     { 
       name: 'Transactions', 
       icon: 'bank',
+      iconSrc: 'Transactions.svg',
       hasSubmenu: true,
       isSubmenuOpen: false,
       submenuItems: [
@@ -62,6 +65,7 @@ export class SidebarComponent {
     { 
       name: 'Rewards', 
       icon: 'gift', 
+      iconSrc: 'Rewards.svg',
       hasSubmenu: true,
       isSubmenuOpen: false,
       submenuItems: [
@@ -75,6 +79,7 @@ export class SidebarComponent {
     { 
       name: 'Utility Plan', 
       icon: 'bulb', 
+      iconSrc: 'Utility Plan.svg',
       hasSubmenu: true,
       isSubmenuOpen: false,
       submenuItems: [
@@ -88,10 +93,10 @@ export class SidebarComponent {
   ];
   
   accountItems: MenuItem[] = [
-    { name: 'Notifications', icon: 'notification' },
-    { name: 'Settings', icon: 'setting' },
-    { name: 'FAQ', icon: 'question' },
-    { name: 'Log Out', icon: 'logout' }
+    { name: 'Notifications', icon: 'notification', iconSrc: 'Notifications.svg' },
+    { name: 'Settings', icon: 'setting', iconSrc: 'Setting-white.svg' },
+    { name: 'FAQ', icon: 'question', iconSrc: 'FAQs.svg' },
+    { name: 'Log Out', icon: 'logout', iconSrc: 'Logout.svg' }
   ];
   
   toggleSubmenu(item: MenuItem): void {
