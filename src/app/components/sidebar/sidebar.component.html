@@ -1,0 +1,97 @@
+<div class="sidebar" [class.collapsed]="!isOpen">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-icon">
+        <div class="logo-shape"></div>
+      </div>
+      <span class="logo-text" *ngIf="isOpen">COINSPACE</span>
+    </div>
+  </div>
+
+  <div class="sidebar-content">
+    <div class="sidebar-section">
+      <h3 *ngIf="isOpen">Quick Access</h3>
+      <ul class="menu-list">
+        <li *ngFor="let item of menuItems" 
+            [class.active]="item.isActive"
+            [class.has-submenu]="item.hasSubmenu">
+          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
+            <span class="menu-icon">
+              <ng-container [ngSwitch]="item.icon">
+                <span *ngSwitchCase="'home'" class="icon">🏠</span>
+                <span *ngSwitchCase="'sync'" class="icon">🔄</span>
+                <span *ngSwitchCase="'wallet'" class="icon">💼</span>
+                <span *ngSwitchCase="'chart'" class="icon">📊</span>
+                <span *ngSwitchDefault class="icon">📁</span>
+              </ng-container>
+            </span>
+            <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
+            <span class="submenu-arrow" *ngIf="item.hasSubmenu && isOpen">
+              <span [class.open]="item.isSubmenuOpen">›</span>
+            </span>
+          </a>
+          <ul class="submenu" *ngIf="item.hasSubmenu && item.isSubmenuOpen && isOpen">
+            <li *ngFor="let subItem of item.submenuItems">
+              <a class="submenu-item" (click)="handleSubmenuItemClick(item.name, subItem.name)">
+                {{ subItem.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <h3 *ngIf="isOpen">Service</h3>
+      <ul class="menu-list">
+        <li *ngFor="let item of serviceItems" 
+            [class.active]="item.isActive"
+            [class.has-submenu]="item.hasSubmenu">
+          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
+            <span class="menu-icon">
+              <ng-container [ngSwitch]="item.icon">
+                <span *ngSwitchCase="'bank'" class="icon">🏦</span>
+                <span *ngSwitchCase="'gift'" class="icon">🎁</span>
+                <span *ngSwitchCase="'bulb'" class="icon">💡</span>
+                <span *ngSwitchDefault class="icon">📁</span>
+              </ng-container>
+            </span>
+            <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
+            <span class="submenu-arrow" *ngIf="item.hasSubmenu && isOpen">
+              <span [class.open]="item.isSubmenuOpen">›</span>
+            </span>
+          </a>
+          <ul class="submenu" *ngIf="item.hasSubmenu && item.isSubmenuOpen && isOpen">
+            <li *ngFor="let subItem of item.submenuItems">
+              <a class="submenu-item" (click)="handleSubmenuItemClick(item.name, subItem.name)">
+                {{ subItem.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <h3 *ngIf="isOpen">Account</h3>
+      <ul class="menu-list">
+        <li *ngFor="let item of accountItems" [class.active]="item.isActive">
+          <a class="menu-item">
+            <span class="menu-icon">
+              <ng-container [ngSwitch]="item.icon">
+                <span *ngSwitchCase="'notification'" class="icon">🔔</span>
+                <span *ngSwitchCase="'setting'" class="icon">⚙️</span>
+                <span *ngSwitchCase="'question'" class="icon">❓</span>
+                <span *ngSwitchCase="'logout'" class="icon">🚪</span>
+                <span *ngSwitchDefault class="icon">📁</span>
+              </ng-container>
+            </span>
+            <span class="menu-text" *ngIf="isOpen">{{ item.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

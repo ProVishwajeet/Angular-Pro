@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header-left">
+    <button class="hamburger-btn" (click)="onToggleSidebar()">
+      <img src="assets/humberger-icon.svg" alt="Menu">
+    </button>
+    <div class="logo">
+      <span class="logo-text">COINSPACE</span>
+    </div>
+  </div>
+  
+  <div class="search-container">
+    <div class="search-bar">
+      <img src="assets/search.svg" alt="Search" class="search-icon">
+      <input type="text" placeholder="Type any cryptocurrency...">
+    </div>
+  </div>
+  
+  <div class="header-right">
+    <div class="header-icon">
+      <img src="assets/setting-icon.svg" alt="Settings">
+    </div>
+    
+    <div class="header-icon notification">
+      <img src="assets/Bell.svg" alt="Notifications">
+      <span class="notification-badge" *ngIf="notificationCount > 0">{{notificationCount}}</span>
+    </div>
+    
+    <div class="header-icon">
+      <img src="assets/Wallet.svg" alt="Wallet">
+    </div>
+    
+    <div class="profile">
+      <img src="assets/profile-icon.jpg" alt="Profile" class="profile-img">
+    </div>
+    
+    <div class="country-flag">
+      <img src="assets/US-flag.svg" alt="US Flag">
+    </div>
+  </div>
+</header>
