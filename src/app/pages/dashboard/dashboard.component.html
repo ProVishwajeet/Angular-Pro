@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+  <!-- Original breadcrumbs and header removed as requested -->
+
+  <!-- Cryptocurrency Cards Section -->
+  <div class="crypto-section">
+    <div class="section-header">
+      <!-- Replaced Market Overview heading with breadcrumbs -->
+      <div class="breadcrumbs section-breadcrumbs">
+        <img src="assets/Bredcrumbs-indicator.svg" class="breadcrumb-separator" alt="separator">
+        <a href="#" class="breadcrumb-item">Welcome</a>
+        <img src="assets/Bredcrumbs-indicator.svg" class="breadcrumb-separator" alt="separator">
+        <a href="#" class="breadcrumb-item active">Dashboard</a>
+        <img src="assets/Bredcrumbs-indicator-active.svg" class="breadcrumb-separator-active" alt="active separator">
+      </div>
+      <div class="navigation-arrows">
+        <button class="nav-arrow grid-view">
+          <img src="assets/Grid-list-without bg.svg" alt="Grid View" class="control-icon">
+        </button>
+        <button class="nav-arrow left" (click)="scrollLeft()">
+          <img src="assets/card-right-arrow.svg" alt="Previous" class="control-icon left-arrow">
+        </button>
+        <button class="nav-arrow right" (click)="scrollRight()">
+          <img src="assets/card-right-arrow.svg" alt="Next" class="control-icon">
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Loading cryptocurrency data...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="error" class="error-container">
+      <p>{{ error }}</p>
+      <button (click)="fetchCryptocurrencies()">Try Again</button>
+    </div>
+
+    <!-- Cryptocurrency Cards -->
+    <div *ngIf="!loading && !error" class="crypto-cards-container">
+      <div *ngFor="let crypto of cryptocurrencies" class="crypto-card" [ngClass]="crypto.symbol.toLowerCase()">
+        <div class="card-header">
+          <div class="crypto-info">
+            <div class="crypto-icon">
+              <img [src]="'assets/crypto-icons/' + crypto.symbol.toLowerCase() + '.svg'" [alt]="crypto.name">
+            </div>
+            <div class="crypto-details">
+              <h3 class="crypto-symbol">{{ crypto.symbol }}</h3>
+              <p class="crypto-name">{{ crypto.name }}</p>
+            </div>
+          </div>
+          <div class="crypto-price">
+            <h3>¥ {{ crypto.price.toLocaleString() }}</h3>
+            <p class="percent-change" [ngClass]="getPercentClass(crypto.percentChange)">
+              <span [ngClass]="getArrowClass(crypto.percentChange)">
+                {{ crypto.percentChange >= 0 ? '↑' : '↓' }}
+              </span>
+              {{ getAbsolutePercentChange(crypto.percentChange) }}%
+            </p>
+          </div>
+        </div>
+        <div class="crypto-chart">
+          <svg width="100%" height="100%" viewBox="0 0 300 80" preserveAspectRatio="none">
+            <path [attr.d]="generateChartPath(crypto.chartData)" 
+                  [attr.stroke]="getChartColor(crypto.percentChange)" 
+                  stroke-width="2" 
+                  fill="none" />
+            <path [attr.d]="generateChartAreaPath(crypto.chartData)" 
+                  [attr.fill]="getChartGradient(crypto.percentChange)" 
+                  opacity="0.2" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

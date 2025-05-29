@@ -1,0 +1,333 @@
+.dashboard-container {
+  padding: 5px 30px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.breadcrumb-item {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #1F263E;
+  }
+  
+  &.active {
+    color: #1348FC;
+    font-weight: 600;
+  }
+}
+
+.breadcrumb-separator, .breadcrumb-separator-active {
+  margin: 0 8px;
+  height: 16px;
+  width: auto;
+}
+
+.section-breadcrumbs {
+  margin-bottom: 0;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  margin-bottom: 30px;
+  
+  h1 {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1F263E;
+    margin-bottom: 5px;
+  }
+  
+  .subtitle {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 16px;
+    color: #6c757d;
+  }
+}
+
+/* Cryptocurrency Section */
+.crypto-section {
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  
+  h2 {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1F263E;
+    margin: 0;
+  }
+}
+
+.navigation-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #DFE5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+  padding: 0;
+  
+  &:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .control-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .left-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+/* Cryptocurrency Cards */
+.crypto-cards-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: hidden;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  
+  /* Hide scrollbar but allow scrolling */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.crypto-card {
+  min-width: calc(25% - 9px);
+  flex: 0 0 calc(25% - 9px);
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #DFE5F9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Specific styling for different cryptocurrencies - using color in charts instead of borders */
+  &.btc .crypto-icon {
+    color: #F7931A;
+  }
+  
+  &.eth .crypto-icon {
+    color: #627EEA;
+  }
+  
+  &.xem .crypto-icon {
+    color: #67B2E8;
+  }
+  
+  &.xrp .crypto-icon {
+    color: #23292F;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.crypto-info {
+  display: flex;
+  align-items: center;
+}
+
+.crypto-icon {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.crypto-details {
+  .crypto-symbol {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F263E;
+    margin: 0 0 2px 0;
+  }
+  
+  .crypto-name {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 12px;
+    color: #6c757d;
+    margin: 0;
+  }
+}
+
+.crypto-price {
+  text-align: right;
+  
+  h3 {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F263E;
+    margin: 0 0 2px 0;
+  }
+}
+
+.percent-change {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+  &.percent-up {
+    color: #00C9A7;
+  }
+  
+  &.percent-down {
+    color: #FF6B6B;
+  }
+}
+
+.arrow-up, .arrow-down {
+  margin-right: 4px;
+}
+
+.crypto-chart {
+  height: 80px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(248, 249, 250, 0), rgba(248, 249, 250, 1));
+    pointer-events: none;
+  }
+  
+  // Specific gradient effects for different cryptocurrencies
+  .btc & {
+    &::after {
+      background: linear-gradient(to bottom, rgba(255, 236, 179, 0), rgba(248, 249, 250, 1));
+    }
+  }
+  
+  .eth & {
+    &::after {
+      background: linear-gradient(to bottom, rgba(209, 216, 255, 0), rgba(248, 249, 250, 1));
+    }
+  }
+  
+  .xem & {
+    &::after {
+      background: linear-gradient(to bottom, rgba(200, 250, 245, 0), rgba(248, 249, 250, 1));
+    }
+  }
+  
+  .xrp & {
+    &::after {
+      background: linear-gradient(to bottom, rgba(230, 240, 255, 0), rgba(248, 249, 250, 1));
+    }
+  }
+}
+
+/* Loading and Error States */
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #1F263E;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-container {
+  color: #FF6B6B;
+  
+  button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #1F263E;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #2d3748;
+    }
+  }
+}

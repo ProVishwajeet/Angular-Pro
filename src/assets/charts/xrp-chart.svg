@@ -1,0 +1,10 @@
+<svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 50C1 50 20 40 40 30C60 20 80 40 100 20C120 0 140 30 160 10C180 -10 200 20 220 10C240 0 240 0 240 0" stroke="#23292F" stroke-opacity="0.5" stroke-width="2"/>
+  <path d="M1 50C1 50 20 40 40 30C60 20 80 40 100 20C120 0 140 30 160 10C180 -10 200 20 220 10C240 0 240 0 240 0" stroke="url(#paint0_linear_xrp)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="paint0_linear_xrp" x1="120.5" y1="0" x2="120.5" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23292F"/>
+      <stop offset="1" stop-color="#23292F" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

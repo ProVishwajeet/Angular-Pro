@@ -1,0 +1,10 @@
+<svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 60C1 60 20 40 40 50C60 60 80 20 100 30C120 40 140 10 160 20C180 30 200 50 220 40C240 30 240 30 240 30" stroke="#F7931A" stroke-opacity="0.5" stroke-width="2"/>
+  <path d="M1 60C1 60 20 40 40 50C60 60 80 20 100 30C120 40 140 10 160 20C180 30 200 50 220 40C240 30 240 30 240 30" stroke="url(#paint0_linear_btc)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="paint0_linear_btc" x1="120.5" y1="10" x2="120.5" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7931A"/>
+      <stop offset="1" stop-color="#F7931A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

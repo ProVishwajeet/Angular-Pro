@@ -3,7 +3,7 @@
     <button class="hamburger-btn" (click)="onToggleSidebar()">
       <img src="assets/humberger-icon.svg" alt="Menu">
     </button>
-    <div class="header-icon box-icon">
+    <div class="header-icon box-icon" (click)="showSnackbar('3D Box clicked')">
       <img src="assets/3d-box.svg" alt="3D Box">
     </div>
     <div class="search-container">
@@ -15,20 +15,20 @@
   </div>
   
   <div class="header-right">
-    <div class="header-icon">
+    <div class="profile" (click)="showSnackbar('Profile clicked')">
+      <img src="assets/profile-icon.jpg" alt="Profile" class="profile-img">
+    </div>
+    
+    <div class="header-icon" (click)="showSnackbar('Settings clicked')">
       <img src="assets/setting-icon.svg" alt="Settings">
     </div>
     
-    <div class="header-icon notification">
+    <div class="header-icon notification" (click)="showSnackbar('Notifications clicked')">
       <img src="assets/Bell.svg" alt="Notifications">
       <span class="notification-badge" *ngIf="notificationCount > 0">{{notificationCount}}</span>
     </div>
     
-    <div class="profile">
-      <img src="assets/profile-icon.jpg" alt="Profile" class="profile-img">
-    </div>
-    
-    <div class="header-icon country-flag">
+    <div class="header-icon country-flag" (click)="showSnackbar('Country Flag clicked')">
       <img src="assets/US-flag.svg" alt="US Flag">
     </div>
   </div>

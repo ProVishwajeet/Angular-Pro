@@ -3,8 +3,7 @@
   <div class="main-content" [style.marginLeft]="isSidebarOpen ? '250px' : '70px'">
     <app-header [isSidebarOpen]="isSidebarOpen" (toggleSidebar)="toggleSidebar()"></app-header>
     <div class="content">
-      <h1>Welcome to Coinspace</h1>
-      <p>Your cryptocurrency dashboard</p>
+      <router-outlet></router-outlet>
     </div>
   </div>
   <app-snackbar></app-snackbar>

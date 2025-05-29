@@ -1,6 +1,6 @@
 # Coinspace Angular Application
 
-This is an Angular application for Coinspace cryptocurrency platform with a responsive header and sidebar navigation.
+This is an Angular application for Coinspace cryptocurrency platform with a responsive header, sidebar navigation, and cryptocurrency dashboard.
 
 ## Features
 
@@ -9,6 +9,55 @@ This is an Angular application for Coinspace cryptocurrency platform with a resp
 - Interactive menu with submenu options
 - Notification system with badge indicator
 - Snackbar notifications for user actions
+- Cryptocurrency dashboard with real-time market data
+- PostgreSQL database integration for storing cryptocurrency data
+
+## Setup and Running
+
+### Frontend (Angular)
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the Angular development server:
+
+```bash
+ng serve --port 4201
+```
+
+The application will be available at http://localhost:4201
+
+### Backend (Node.js with PostgreSQL)
+
+1. Navigate to the server directory:
+
+```bash
+cd server
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up PostgreSQL database:
+
+```bash
+createdb coinspace
+psql -U postgres -d coinspace -f src/config/init.sql
+```
+
+4. Start the backend server:
+
+```bash
+npm start
+```
+
+The API will be available at http://localhost:3000/api
 
 ## Project Structure
 

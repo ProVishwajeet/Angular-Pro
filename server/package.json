@@ -1,0 +1,20 @@
+{
+  "name": "coinspace-api",
+  "version": "1.0.0",
+  "description": "Backend API for Coinspace cryptocurrency dashboard",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:init": "psql -U postgres -d coinspace -f src/config/init.sql"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.21.2",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

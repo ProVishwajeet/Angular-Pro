@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,13 @@ export class HeaderComponent {
   
   notificationCount: number = 2;
 
+  constructor(private snackbarService: SnackbarService) {}
+
   onToggleSidebar() {
     this.toggleSidebar.emit();
+  }
+
+  showSnackbar(message: string): void {
+    this.snackbarService.showSnackbar(message);
   }
 }

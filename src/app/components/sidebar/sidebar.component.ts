@@ -125,4 +125,10 @@ export class SidebarComponent {
   handleSubmenuItemClick(menuItem: string, submenuItem: string): void {
     this.snackbarService.showSnackbar(`${submenuItem} clicked`);
   }
+  
+  handleMenuItemClick(item: MenuItem): void {
+    if (!item.hasSubmenu && !item.isActive) {
+      this.snackbarService.showSnackbar(`${item.name} clicked`);
+    }
+  }
 }

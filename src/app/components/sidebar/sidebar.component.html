@@ -13,7 +13,7 @@
         <li *ngFor="let item of menuItems" 
             [class.active]="item.isActive"
             [class.has-submenu]="item.hasSubmenu">
-          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
+          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : handleMenuItemClick(item)">
             <span class="menu-icon">
               <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
@@ -39,7 +39,7 @@
         <li *ngFor="let item of serviceItems" 
             [class.active]="item.isActive"
             [class.has-submenu]="item.hasSubmenu">
-          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : null">
+          <a class="menu-item" (click)="item.hasSubmenu ? toggleSubmenu(item) : handleMenuItemClick(item)">
             <span class="menu-icon">
               <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
@@ -63,7 +63,7 @@
       <h3 *ngIf="isOpen">Account</h3>
       <ul class="menu-list">
         <li *ngFor="let item of accountItems.slice(0, accountItems.length - 1)" [class.active]="item.isActive">
-          <a class="menu-item">
+          <a class="menu-item" (click)="handleMenuItemClick(item)">
             <span class="menu-icon">
               <img [src]="'assets/' + item.iconSrc" alt="{{ item.name }}" class="menu-svg-icon">
             </span>
@@ -76,7 +76,7 @@
   
   <!-- Logout button positioned at the bottom -->
   <div class="logout-container">
-    <a class="menu-item">
+    <a class="menu-item" (click)="handleMenuItemClick(accountItems[accountItems.length - 1])">
       <span class="menu-icon">
         <img [src]="'assets/' + accountItems[accountItems.length - 1].iconSrc" alt="{{ accountItems[accountItems.length - 1].name }}" class="menu-svg-icon">
       </span>
